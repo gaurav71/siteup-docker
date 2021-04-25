@@ -3,8 +3,8 @@ services:
     image: "redis"
     command: "redis-server /usr/local/etc/redis/redis.conf"
     volumes:
-      - ./redis/data:/data
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-data:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
   siteup-frontend:
     build: ./siteup-frontend/
     ports:
