@@ -3,14 +3,12 @@ services:
     image: "redis"
     command: "redis-server /usr/local/etc/redis/redis.conf"
     volumes:
-      - ./redis/redis-data:/var/lib/redis
-      - ./redis/:/usr/local/etc/redis/
+      - ./redis/data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
   siteup-frontend:
     build: ./siteup-frontend/
     ports:
-      - "8000:8000"
+      - "8000:80"
   siteup-backend:
     build: ./siteup-backend/
     env_file: ./siteup-backend/.env
-    ports:
-      - "9000:9000"
